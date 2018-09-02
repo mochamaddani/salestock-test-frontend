@@ -14,7 +14,7 @@ const propTypes = {
 	name: PropTypes.string.isRequired,
 	slug: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
     sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
     category: PropTypes.string,
     colors: PropTypes.arrayOf(PropTypes.string),
@@ -72,7 +72,7 @@ class Items extends Component {
                     <div className="square">
                         <div className="PItems__image-placeholder">
                             <img
-                                src={this.props.image}
+                                src={this.props.images[0]}
                                 className="PItem_image"
                                 alt={this.props.name}
                             />

@@ -2,8 +2,8 @@
   "name": "salestock-test-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
