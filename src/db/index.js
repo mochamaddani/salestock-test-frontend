@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const base_url = 'http://localhost:5000/'
+import Helper from '../Helper'
 
 const Products = {
     All: (page=1, limit=2) => {
-        const path = `${base_url}api/products?page=${page}&perPage=${limit}`;
+        const path = Helper.base_url(`api/products?page=${page}&perPage=${limit}`);
         return axios.get(path)
     },
     GetBySlug: (slug) => {
-        const path = `${base_url}api/products/${slug}`;
+        const path = Helper.base_url(`api/products/${slug}`);
         return axios.get(path)
     }
 }
