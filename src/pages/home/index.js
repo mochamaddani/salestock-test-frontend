@@ -16,6 +16,7 @@ export default class Home extends Component {
             isLoading: true,
             page: 1,
             perPage: 2,
+            stopPaging: false,
         }
     }
 
@@ -25,6 +26,9 @@ export default class Home extends Component {
 
         setTimeout(() => {
             if (!resp.data.error) {
+                if (resp.data.data=='' || resp.data.data==null) {
+                    this.setState({ stopPaging: true });
+                }
                 this.setState({products: this.state.products.concat(resp.data.data)})
             }
             this.setState({ isLoading: false });
@@ -56,9 +60,12 @@ export default class Home extends Component {
             const offsetHeight = document.documentElement.offsetHeight
 			const bottomOfWindow = scrollTop + innerHeight === offsetHeight
 			if (bottomOfWindow) {
-                const next = this.state.page + 1;
-                await this._GetProducts(next);
-                this.setState({page: next});
+                if (!this.state.stopPaging) {
+                    const next = this.state.page + 1;
+                    await this._GetProducts(next);
+                    this.setState({page: next});
+                }
+                
 			}
 		}
     }
