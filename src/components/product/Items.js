@@ -30,7 +30,7 @@ class Items extends Component {
     constructor(props){
         super(props);
         this.state = {
-            image: 0,
+            imageNum: 0,
         }
 
     }
@@ -68,10 +68,6 @@ class Items extends Component {
         }
     }
 
-    _imgChooser(i_img){
-
-    }
-
     render(){
         return(
             <Col xs={12} md={{ size: 6, offset: 3 }}>
@@ -81,7 +77,7 @@ class Items extends Component {
                         {
                             this.props.showDetail ? 
                                 <img
-                                    src={this.props.images[0]}
+                                    src={this.props.images[this.state.imageNum]}
                                     className="PItem_image"
                                     alt={this.props.name}
                                 />
@@ -92,6 +88,7 @@ class Items extends Component {
                                         src={this.props.images[0]}
                                         className="PItem_image"
                                         alt={this.props.name}
+                                        
                                     />
                                 }
                             </Link>
@@ -108,8 +105,9 @@ class Items extends Component {
                                         <img
                                             key={i}
                                             src={this.props.images[i]}
-                                            className="PItem__imgChooser__image active"
+                                            className={this.state.imageNum==i ? "PItem__imgChooser__image active" : "PItem__imgChooser__image"}
                                             alt={this.props.name}
+                                            onClick={() => this.setState({imageNum: i})}
                                         />
                                     );
                                 })
