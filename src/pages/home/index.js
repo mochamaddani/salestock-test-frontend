@@ -24,15 +24,13 @@ export default class Home extends Component {
         this.setState({ isLoading: true });
         const resp = await Products.All(page, perPage);
 
-        setTimeout(() => {
-            if (!resp.data.error) {
-                if (resp.data.data=='' || resp.data.data==null) {
-                    this.setState({ stopPaging: true });
-                }
-                this.setState({products: this.state.products.concat(resp.data.data)})
+        if (!resp.data.error) {
+            if (resp.data.data=='' || resp.data.data==null) {
+                this.setState({ stopPaging: true });
             }
-            this.setState({ isLoading: false });
-        }, 2000)
+            this.setState({products: this.state.products.concat(resp.data.data)})
+        }
+        this.setState({ isLoading: false });
         
     }
 
