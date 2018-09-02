@@ -19,7 +19,8 @@
 	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
+    white-space: nowrap;
+    padding: 0 0 1rem 0;
 }
 
 .PItems__title a {

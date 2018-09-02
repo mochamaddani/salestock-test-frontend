@@ -40,7 +40,7 @@ class Navigation extends React.Component {
 						<Collapse isOpen={this.state.open} navbar>
 							<Nav className="ml-auto" navbar>
 								<NavItem>
-                                    Products
+                                    Hallo, Dani
 								</NavItem>
 							</Nav>
 						</Collapse>
