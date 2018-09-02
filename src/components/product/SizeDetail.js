@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-    lingkarDada: PropTypes.string,
-    lebarBahu: PropTypes.string, 
-    panjangLengan: PropTypes.string,
-    lingkarLengan: PropTypes.string,
-    panjang: PropTypes.string,
-    lingkarPinggang: PropTypes.string,
-    lingkarPinggul: PropTypes.string,
+    lingkarDada: PropTypes.number,
+    lebarBahu: PropTypes.number, 
+    panjangLengan: PropTypes.number,
+    lingkarLengan: PropTypes.number,
+    panjang: PropTypes.number,
+    lingkarPinggang: PropTypes.number,
+    lingkarPinggul: PropTypes.number,
 }
 
 const defaultProps = {
@@ -27,7 +27,7 @@ class SizeDetail extends Component {
         const detailSizes = [];
         if (this.props.lingkarDada!==null) {
             detailSizes.push(
-                <div style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
+                <div key={0} style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
                     <p>Lingkar Dada</p>
                     <p>{`${this.props.lingkarDada} cm`}</p>
                 </div>
@@ -36,7 +36,7 @@ class SizeDetail extends Component {
 
         if (this.props.lebarBahu!==null) {
             detailSizes.push(
-                <div style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
+                <div key={1} style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
                     <p>Lebar Bahu</p>
                     <p>{`${this.props.lebarBahu} cm`}</p>
                 </div>
@@ -45,7 +45,7 @@ class SizeDetail extends Component {
 
         if (this.props.panjangLengan!==null) {
             detailSizes.push(
-                <div style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
+                <div key={2} style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
                     <p>Panjang Lengan</p>
                     <p>{`${this.props.panjangLengan} cm`}</p>
                 </div>
@@ -54,7 +54,7 @@ class SizeDetail extends Component {
 
         if (this.props.panjang!==null) {
             detailSizes.push(
-                <div style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
+                <div key={3} style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
                     <p>Panjang</p>
                     <p>{`${this.props.panjang} cm`}</p>
                 </div>
@@ -63,7 +63,7 @@ class SizeDetail extends Component {
 
         if (this.props.lingkarPinggang!==null) {
             detailSizes.push(
-                <div style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
+                <div key={4} style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
                     <p>Lingkar Pinggang</p>
                     <p>{`${this.props.lingkarPinggang} cm`}</p>
                 </div>
@@ -72,7 +72,7 @@ class SizeDetail extends Component {
 
         if (this.props.lingkarPinggul!==null) {
             detailSizes.push(
-                <div style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
+                <div key={5} style={{padding: '10px', height: '80px', flexDirection: 'column', alignItems: 'center', display: 'flex'}}>
                     <p>Lingkar Pinggul</p>
                     <p>{`${this.props.lingkarPinggul} cm`}</p>
                 </div>

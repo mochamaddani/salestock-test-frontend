@@ -24,7 +24,7 @@ class ItemDetailed extends Component {
     _renderDetailedSize(){
         const detailedSize = this.props.sizes.map((item, i) => {
             return(
-                <div>
+                <div key={i}>
                     <p style={{fontSize: '1.0rem', fontWeight: 'bold'}}>{`Size ${item.name}`}</p>
                         <SizeDetail {...item} />
                     <hr />

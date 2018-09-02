@@ -29,6 +29,9 @@ const defaultProps = {
 class Items extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            image: 0,
+        }
 
     }
 
@@ -52,7 +55,7 @@ class Items extends Component {
         );
     }
 
-    _renderDescription(){
+    _renderItemDetail(){
         if (this.props.showDetail) {
             return <ItemDetailed sizes={this.props.sizes} colors={this.props.colors} />
         }
@@ -63,6 +66,10 @@ class Items extends Component {
         if (this.state.isLoading) {
             return null
         }
+    }
+
+    _imgChooser(i_img){
+
     }
 
     render(){
@@ -83,17 +90,36 @@ class Items extends Component {
                                 {
                                     <img
                                         src={this.props.images[0]}
-                                        className="ProductItem__image"
+                                        className="PItem_image"
                                         alt={this.props.name}
                                     />
                                 }
                             </Link>
 
                         }
-                        
-                            
                         </div>
                     </div>
+                    {
+                        this.props.showDetail ?
+                        <div className="PItems__imgChooser">
+                            {
+                                this.props.images.map((img, i) => {
+                                    return(
+                                        <img
+                                            key={i}
+                                            src={this.props.images[i]}
+                                            className="PItem__imgChooser__image active"
+                                            alt={this.props.name}
+                                        />
+                                    );
+                                })
+                            }
+                            
+                        </div>
+                        :
+                        null
+                    }
+                    
                     <h3 className="PItems__title">
                         <Link to={`/product/${this.props.slug}`}>{this.props.name}</Link>
                     </h3>
@@ -102,7 +128,7 @@ class Items extends Component {
                         <span className="PItems__sizes">{this.props.sizes.map(e => e.name).join(", ")}</span>
                     </div>
                     <hr />
-                    {this._renderDescription()}
+                    {this._renderItemDetail()}
                     {this._renderFooter()}
                 </div>
             </Col>
