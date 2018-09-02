@@ -71,11 +71,27 @@ class Items extends Component {
                 <div className="PItem_wrapper">
                     <div className="square">
                         <div className="PItems__image-placeholder">
-                            <img
-                                src={this.props.images[0]}
-                                className="PItem_image"
-                                alt={this.props.name}
-                            />
+                        {
+                            this.props.showDetail ? 
+                                <img
+                                    src={this.props.images[0]}
+                                    className="PItem_image"
+                                    alt={this.props.name}
+                                />
+                            :
+                            <Link to={`/product/${this.props.slug}`}>
+                                {
+                                    <img
+                                        src={this.props.images[0]}
+                                        className="ProductItem__image"
+                                        alt={this.props.name}
+                                    />
+                                }
+                            </Link>
+
+                        }
+                        
+                            
                         </div>
                     </div>
                     <h3 className="PItems__title">
