@@ -3,8 +3,8 @@ import axios from 'axios';
 const base_url = 'http://localhost:5000/'
 
 const Products = {
-    All: () => {
-        const path = `${base_url}api/products`;
+    All: (page=1, limit=2) => {
+        const path = `${base_url}api/products?page=${page}&perPage=${limit}`;
         return axios.get(path)
     },
     GetBySlug: (slug) => {

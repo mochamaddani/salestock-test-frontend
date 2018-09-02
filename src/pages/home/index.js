@@ -14,16 +14,18 @@ export default class Home extends Component {
         this.state = {
             products: [],
             isLoading: true,
+            page: 1,
+            perPage: 2,
         }
     }
 
-    async _GetProducts(){
+    async _GetProducts(page, perPage){
         this.setState({ isLoading: true });
-        const resp = await Products.All();
+        const resp = await Products.All(page, perPage);
 
         setTimeout(() => {
             if (!resp.data.error) {
-                this.setState({ products: resp.data.data })
+                this.setState({products: this.state.products.concat(resp.data.data)})
             }
             this.setState({ isLoading: false });
         }, 2000)
@@ -31,7 +33,7 @@ export default class Home extends Component {
     }
 
     _renderLists(){
-        if (this.state.isLoading) {
+        if (this.state.isLoading && this.state.page==1) {
             const loadingList = []
             for (let j=0;j<3;j++) {
                 loadingList.push(<Placeholder key={j} />)
@@ -54,14 +56,16 @@ export default class Home extends Component {
             const offsetHeight = document.documentElement.offsetHeight
 			const bottomOfWindow = scrollTop + innerHeight === offsetHeight
 			if (bottomOfWindow) {
-                console.log('End Scroll');
+                const next = this.state.page + 1;
+                await this._GetProducts(next);
+                this.setState({page: next});
 			}
 		}
     }
 
     componentDidMount(){
         this._InitScrollHandler()
-        this._GetProducts();
+        this._GetProducts(this.state.page, this.state.perPage);
     }
 
     render(){
