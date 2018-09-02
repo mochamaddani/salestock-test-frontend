@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Container, Row, Col, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
+import '../../App.css';
+
 import Items from '../../components/product/Items';
 import Placeholder from '../../components/product/placeholder'
 
@@ -61,6 +63,28 @@ export default class Home extends Component {
                 <Row>
                     {this._renderLists()}
                 </Row>
+                {
+                    this.state.isLoading ? 
+                    <div style={{width: '100%', height: '1.7rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <div class="lds-default">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    :
+                    null
+                }
+                
             </Container>
         );
     }
