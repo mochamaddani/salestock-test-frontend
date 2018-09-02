@@ -18,5 +18,5 @@ Launches the test runner in the interactive watch mode.
 1.  User can browse products in infinite list
 2.  User can view detailed information of each product
 3.  User can view the image of each product
-4.  Placeholder component while loading data to increase UX
+4.  Placeholder component while loading data
 5.  I build my [Backend](https://github.com/mochamaddani/salestocktest-backend)
