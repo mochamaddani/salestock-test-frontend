@@ -79,7 +79,7 @@ class Items extends Component {
                         </div>
                     </div>
                     <h3 className="PItems__title">
-                        <Link to={`/products/${this.props.slug}`}>{this.props.name}</Link>
+                        <Link to={`/product/${this.props.slug}`}>{this.props.name}</Link>
                     </h3>
                     <div className="PItems__priceArea">
                         <span className="PItems__price">{this.props.price.toLocaleString('id')}</span>

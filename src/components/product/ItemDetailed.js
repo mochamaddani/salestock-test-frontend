@@ -3,6 +3,8 @@ import { Table } from 'reactstrap'
 
 import PropTypes from 'prop-types'
 
+import SizeDetail from './SizeDetail'
+
 const propTypes = {
     sizes: PropTypes.arrayOf(PropTypes.object).isRequired,
     colors: PropTypes.arrayOf(PropTypes.string).isRequired
@@ -24,24 +26,8 @@ class ItemDetailed extends Component {
             return(
                 <div>
                     <p style={{fontSize: '1.0rem', fontWeight: 'bold'}}>{`Size ${item.name}`}</p>
-                    <Table key={i} striped hover>
-                        <thead>
-                            <tr>
-                                <th>Lingkar Dada</th>
-                                <th>Panjang Lengan</th>
-                                <th>Panjang</th>
-                                <th>Lingkar Pinggang</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{item.lingkarDada}</td>
-                                <td>{item.panjangLengan}</td>
-                                <td>{item.panjang}</td>
-                                <td>{item.lingkarPinggang}</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                        <SizeDetail {...item} />
+                    <hr />
                 </div>
             );
         })

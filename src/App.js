@@ -17,6 +17,7 @@ class App extends Component {
           <Navigation />
           <div>
             <Route exact path="/" component={Home} />
+            <Route path="/product/:slug" component={Detail} />
           </div>
         </div>
       </Router>
