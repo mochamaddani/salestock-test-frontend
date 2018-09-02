@@ -14,6 +14,8 @@ export default class Home extends Component {
                     slug: 'swernia-flower-a-line-big-mini-dress',
                     name: 'Swernia Flower A-Line Big Mini Dress',
                     price: 169000,
+                    colors: ['Tosca', 'Merah', 'Maroon'],
+                    category: 'dress',
                     sizes: [
                         {
                             name: "S",

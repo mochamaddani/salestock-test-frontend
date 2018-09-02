@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import Navigation from './components/navigation/navigation';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Home from './pages/home'
+import Home from './pages/home';
+import Detail from './pages/home/detail'
 import './App.css';
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
         <div className="App">
           <Navigation />
           <div>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Detail} />
           </div>
         </div>
       </Router>

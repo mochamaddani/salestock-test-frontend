@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 import './product.css';
 
+import ItemDetailed from './ItemDetailed';
+
 import iconShare from '../../assets/img/icon-share.png'
 import iconHeart from '../../assets/img/icon-heart.png'
 
@@ -21,7 +23,6 @@ const propTypes = {
 
 const defaultProps = {
     showDetail: false,
-    category: [],
     colors: []
 }
 
@@ -51,6 +52,13 @@ class Items extends Component {
         );
     }
 
+    _renderDescription(){
+        if (this.props.showDetail) {
+            return <ItemDetailed sizes={this.props.sizes} colors={this.props.colors} />
+        }
+        return null
+    }
+
     render(){
         return(
             <Col xs={12} md={{ size: 6, offset: 3 }}>
@@ -72,6 +80,7 @@ class Items extends Component {
                         <span className="PItems__sizes">{this.props.sizes.map(e => e.name).join(", ")}</span>
                     </div>
                     <hr />
+                    {this._renderDescription()}
                     {this._renderFooter()}
                 </div>
             </Col>
