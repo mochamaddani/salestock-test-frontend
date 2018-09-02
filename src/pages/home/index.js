@@ -57,6 +57,22 @@ export default class Home extends Component {
         return itemList;
     }
 
+    _InitScrollHandler(){
+        window.onscroll = async () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const innerHeight = window.innerHeight;
+            const offsetHeight = document.documentElement.offsetHeight
+			const bottomOfWindow = scrollTop + innerHeight === offsetHeight
+			if (bottomOfWindow) {
+                console.log('End Scroll');
+			}
+		}
+    }
+
+    componentDidMount(){
+        this._InitScrollHandler()
+    }
+
     render(){
         return(
             <Container>
