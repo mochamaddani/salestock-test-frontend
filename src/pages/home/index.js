@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
 import Items from '../../components/product/Items';
+import Placeholder from '../../components/product/placeholder'
 
 export default class Home extends Component {
     constructor(props){
@@ -37,17 +38,28 @@ export default class Home extends Component {
         }
     }
 
+    _renderLists(){
+        if (this.state.isLoading) {
+            const loadingList = []
+            for (let j=0;j<3;j++) {
+                loadingList.push(<Placeholder key={j} />)
+            }
+            return loadingList
+            
+        }
+        const itemList = this.state.products.map((item, i) => {
+            return(
+                <Items {...item} key={i} />
+            );
+        })
+        return itemList;
+    }
+
     render(){
         return(
             <Container>
                 <Row>
-                {
-                    this.state.products.map((item, i) => {
-                        return(
-                            <Items {...item} key={i} />
-                        );
-                    })
-                }
+                    {this._renderLists()}
                 </Row>
             </Container>
         );

@@ -59,12 +59,18 @@ class Items extends Component {
         return null
     }
 
+    _renderLists(){
+        if (this.state.isLoading) {
+            return null
+        }
+    }
+
     render(){
         return(
             <Col xs={12} md={{ size: 6, offset: 3 }}>
                 <div className="PItem_wrapper">
                     <div className="square">
-                        <div className="PItems__image-wrapper">
+                        <div className="PItems__image-placeholder">
                             <img
                                 src={this.props.image}
                                 className="PItem_image"
